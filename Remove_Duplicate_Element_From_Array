@@ -1,0 +1,58 @@
+//remove duplicate element in array and store -1 in place of duplicate element
+package array;
+import java.util.*;
+
+
+public class Duplicate_Element {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n;
+		System.out.println("Enter length of array= ");
+		n=sc.nextInt();//taking input length of an array
+		int arr[]= new int [n];
+		System.out.println("Enter element in array= ");
+		for(int i=0;i<n;i++) {//taking element in an array
+			arr[i]=sc.nextInt();
+		}
+		
+		System.out.println("Array element are");//printing element in array
+		for(int i=0;i<n;i++) {
+			System.out.print(arr[i]+" ");
+		}
+		int temp2; //shorting element of array
+		for(int i=0;i<n-1;i++) {
+			for(int k=0;k<n-1;k++) {
+				if(arr[k]>arr[k+1]) {
+					temp2=arr[k];
+					arr[k]=arr[k+1];
+					arr[k+1]=temp2;
+				}
+			}
+		}
+		System.out.println("\nElement of array after sorting= ");
+		for(int i=0;i<n;i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		int temp[]=new int[n];
+		int j=0;
+		for(int i=0;i<n-1;i++) {
+			if(arr[i] != arr[i+1]) {//logic for removing duplicate elements
+				temp[j]=arr[i];
+				j++;
+			}else {//logic for adding -1 in place of duplicate elements
+				temp[j]=-1;
+				j++;
+			}
+			
+		}
+		temp[j]=arr[n-1];//for adding last element
+		System.out.println();
+		System.out.println("After deleting duplicate elemenets");
+		for(int i=0;i<=j;i++) {
+			System.out.print(temp[i]+" ");
+		}
+	sc.close();
+	}
+
+}
