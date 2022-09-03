@@ -1,0 +1,57 @@
+//in this method we develop each method for individual work and call from main method
+package array;
+ 
+public class Method_Duplicate_Element {
+	static int j=0;
+	public static void main(String[] args) {
+		int arr []= {6,1,5,4,4,3,2,1};//declareing unsorted array
+		int  temp[]=new int[arr.length];//declareing unsorted array
+        int n=arr.length;//storing length of an array for further use
+        System.out.println("Before Shorting and removing duplicate element");//printing array before shorting and unsorted
+        for(int i=0;i<arr.length;i++) {
+        	System.out.print(arr[i]+" ");
+        }
+        shortingArray(arr, n);//calling method of sorting jump from line 14 to 44
+        System.out.println("\nAfter Shorting");//printing shorting 
+        for(int i=0;i<arr.length;i++) {
+        	System.out.print(arr[i]+" ");
+        }
+        int x[]=removeDuplicateElement(arr, n);//calling for remove duplicate element jump 19 to 27
+        System.out.println("\nAfter Shorting and removing duplicate element");
+        for(int i=0;i<=j;i++) {
+        	System.out.print(x[i]+" ");
+        }
+	}
+	
+  
+  public static int [] removeDuplicateElement(int arr[],int n){ //method of remove duplicate
+	   
+	  int temp[]=new int [n];
+		for(int i=0;i<n-1;i++) {
+			if(arr[i] != arr[i+1]) {//logic for removing duplicate elements
+				temp[j]=arr[i];
+				j++;
+			}else {//logic for adding -1 in place of duplicate elements
+				temp[j]=-1;
+				j++;
+			}
+			
+		}
+		temp[j]=arr[n-1];//for adding last element
+		return temp;
+	 
+ }
+  public static void shortingArray(int arr[],int n) {//method of shorting
+	  int temp2;//shorting element of array
+		for(int i=0;i<n-1;i++) {
+			for(int k=0;k<n-1;k++) {
+				if(arr[k]>arr[k+1]) {
+					temp2=arr[k];
+					arr[k]=arr[k+1];
+					arr[k+1]=temp2;
+				}
+			}
+		}
+	  
+  }
+}
