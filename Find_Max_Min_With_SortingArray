@@ -1,0 +1,32 @@
+//find maxium and minimum element in array with shorting of an array
+package array;
+import java.util.*;                         //1,4,2,5,3,6,8,7
+public class Max_Min {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter size of array=");
+		int size=sc.nextInt();//taking size of an array
+		int arr[]=new int[size];
+		System.out.println("Enter element in array=");
+		for(int i=0;i<size;i++) {//taking element in an array
+			arr[i]=sc.nextInt();
+		}
+		//Sorting array in assending order
+		for(int j=0;j<size-1;j++) {
+		for(int i=0;i<size-1;i++) {
+			if(arr[i]>arr[i+1]) {
+				int temp=arr[i];
+				arr[i]=arr[i+1];
+				arr[i+1]=temp;
+			}
+		}}
+    System.out.print("Sorted array ");
+		for(int i=0;i<size;i++)//printing sorted array
+		System.out.print(arr[i]+" ");
+		System.out.println();
+		System.out.println("largest element in arr= "+arr[size-1]);//printing maximum value
+		System.out.println("Smallest element in arr= "+arr[0]);//printing minimum value
+		sc.close();
+	}
+
+}
